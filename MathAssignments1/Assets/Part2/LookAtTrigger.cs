@@ -11,6 +11,8 @@ public class LookAtTrigger : MonoBehaviour
     {
         Vector3 transformPosition = transform.position;
         Vector3 objectPosition = triggerObject.position;
+        Handles.color = Color.magenta;
+        Handles.DrawLine(transformPosition, transformPosition + transform.right);
         float angle = Vector2.Dot(transform.right, (objectPosition - transformPosition).normalized);
 
 

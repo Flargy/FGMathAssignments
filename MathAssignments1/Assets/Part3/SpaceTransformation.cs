@@ -31,7 +31,9 @@ public class SpaceTransformation : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(localSpaceReferencePoint.position, 0.1f);
 
-        transformationPoint.localPosition = TransformWorldToLocal(localSpaceReferencePoint, worldPosition);
+        transformationPoint.position = TransformLocalToWorld(localSpaceReferencePoint, worldPosition); //Comment this one out and the following in to test world to local
+
+        //transformationPoint.localPosition = TransformWorldToLocal(localSpaceReferencePoint, worldPosition);
 
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(transformationPoint.position, 0.1f);

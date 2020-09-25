@@ -4,13 +4,13 @@ public class MeshCalculator : MonoBehaviour
 {
     [SerializeField] private Mesh mesh;
 
-    private float area = 0.0f;
-    private int[] triangles;
-    private Vector3[] vertecies;
     
 
-    private void Start()
+    public void Calculate()
     {
+        float area = 0f;
+        int[] triangles;
+        Vector3[] vertecies;
         int vertex1, vertex2, vertex3;
         triangles = mesh.triangles;
         vertecies = mesh.vertices;

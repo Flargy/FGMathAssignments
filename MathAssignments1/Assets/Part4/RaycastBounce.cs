@@ -9,13 +9,6 @@ public class RaycastBounce : MonoBehaviour
     private List<Vector3> hitPoints = new List<Vector3>();
     private RaycastHit hit;
 
-    private Vector3 hitpoint;
-    private Vector3 normal;
-    
-    void Start()
-    {
-        BounceRay(numberOfBounces, transform.position, transform.forward);
-    }
 
     private void BounceRay(int counter, Vector3 origin, Vector3 direction)
     {
@@ -26,8 +19,9 @@ public class RaycastBounce : MonoBehaviour
         }
         if(Physics.Raycast(origin, direction, out hit, Mathf.Infinity))
         {
+            Vector3 normal = hit.normal;
             hitPoints.Add(hit.point);
-            newDirection = direction - 2 * Vector3.Dot(direction, hit.normal.normalized) * hit.normal;
+            newDirection = direction - 2 * Vector3.Dot(direction, normal) * normal;
 
 
         }
@@ -42,6 +36,7 @@ public class RaycastBounce : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        BounceRay(numberOfBounces, transform.position, transform.forward);
         Handles.color = Color.red;
         Vector3 previousVector = transform.position;
         if(hitPoints.Count != 0)
@@ -53,5 +48,7 @@ public class RaycastBounce : MonoBehaviour
                 previousVector = vec;
             }
         }
+
+        hitPoints.Clear();
     }
 }

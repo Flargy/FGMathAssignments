@@ -7,7 +7,7 @@ public class TurretPlacement : MonoBehaviour
     [SerializeField] private float gunHeight = 1f;
     [Range(0.5f, 2f)]
     [SerializeField] private float barrelDistance = 1.0f;
-    [Range(0.5f, 2f)]
+    [Range(0.2f, 1f)]
     [SerializeField] private float barrelLength = 1.0f;
 
     private RaycastHit hit;
@@ -56,12 +56,10 @@ public class TurretPlacement : MonoBehaviour
     private void DrawWireFrame()
     {
         corners = new Vector3[]{
-             // bottom 4 positions:
             new Vector3( 1, 0, 1 ),
             new Vector3( -1, 0, 1 ),
             new Vector3( -1, 0, -1 ),
             new Vector3( 1, 0, -1 ),
-            // top 4 positions:
             new Vector3( 1, 2, 1 ),
             new Vector3( -1, 2, 1 ),
             new Vector3( -1, 2, -1 ),
