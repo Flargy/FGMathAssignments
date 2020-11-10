@@ -818,8 +818,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207907c3b16019d4b8320deba8d75067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arcRadius: 1
-  itemRadii:
+  inventoryRadius: 0.5
+  itemRadius:
+  - 0.05
   - 0.05
   - 0.05
   - 0.05
